@@ -17,4 +17,8 @@ app.post('/api/validar-stock', comprobarDisponibilidad);
 // Endopoint para el desplegable de productos
 app.get('/api/catalogo', obtenerCatalogoDisponible)
 
-app.listen(3000, () => console.log('Servidor en puerto 3000'));
+/* app.listen(3000, () => console.log('Servidor en puerto 3000')); */
+
+if (require.main === module) {
+    app.listen(3000, () => console.log('Servidor local en puerto 3000'));
+}
