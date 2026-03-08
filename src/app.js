@@ -1,10 +1,20 @@
 const express = require('express');
 const app = express();
 
+const path = require('path');
+
+// 1. Servir archivos estáticos
+app.use(express.static(path.join(__dirname, '../public')));
+
+// 2. RUTA RAÍZ EXPLÍCITA (Esto es lo que te falta)
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/index.html'));
+});
+
 // 1. IMPORTANTE: Para que Express entienda el cuerpo de las peticiones POST
 app.use(express.json());
 // 2. Servir archivos estáticos (HTML/CSS)
-app.use(express.static('public')); 
+// app.use(express.static('public')); 
 
 const { comprobarDisponibilidad, finalizarPedido, obtenerCatalogoDisponible} = require('./controllers/pedidoController');
 
