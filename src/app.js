@@ -22,3 +22,5 @@ app.get('/api/catalogo', obtenerCatalogoDisponible)
 if (require.main === module) {
     app.listen(3000, () => console.log('Servidor local en puerto 3000'));
 }
+
+module.exports = app;
